@@ -15,6 +15,8 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
+
 public class Advert {
 
 
@@ -32,6 +34,7 @@ public class Advert {
     private User owner;
     @Column(name = "owner_id", insertable = false, updatable = false)
     private Long userId;
+
 
     @Override
     public boolean equals(Object o) {

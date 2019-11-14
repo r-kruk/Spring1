@@ -3,6 +3,8 @@ package com.github.rkruk.spring.demo.controllers;
 import com.github.rkruk.spring.demo.model.domain.User;
 import com.github.rkruk.spring.demo.model.repositories.UserRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Slf4j
+
 @Controller
 @RequestMapping("/register")
 
@@ -19,7 +21,7 @@ public class RegistrationController {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-//    private static final Logger log = LoggerFactory.getLogger(RegistrationController.java);
+   private static final Logger log = LoggerFactory.getLogger(RegistrationController.class);
 
     @Autowired
     public RegistrationController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
@@ -49,6 +51,6 @@ public class RegistrationController {
         userRepository.save(user);
 
         log.info("Zapisany użytkownik: {}", user);
-        return "redirect:/index.html";
+        return "redirect:/";
     }
 }
